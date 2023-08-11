@@ -1,0 +1,60 @@
+{% extends 'layout/base.html' %} {% block content %}
+<main class="container">
+  <div class="col-md-6 offset-md-3">
+    <ul class="list-group">
+      <li class="list-group-item card">
+        <header class="d-flex justify-content-between">
+          <h2 class="fw-bold text-success">{{task.title}}</h2>
+          <p>Created by : {{task.user}}</p>
+        </header>
+        <p>{{task.description}}</p>
+        {% if task.important == True %} {% load static %}
+        <div class="d-flex justify-content-between">
+          <div class="d-flex">
+            <p class="m-0" style="color: grey; font-weight: 600">
+              It's important
+            </p>
+            <img
+              style="width: 25px"
+              src="{% static 'exclamation.png' %}"
+              alt=""
+            />
+            {% endif %}
+            <div class="d-flex justify-content-between align-items-center">
+              <a href="/tasks/delete/{{task.id}}">
+                <button id="{{task.id}}" class="btn btn-danger">Delete</button>
+              </a>
+              {% if task.datecompleted == None %}
+              <button
+                id="{{task.id}}"
+                class="btn btn-primary done-button bg-success border border-light"
+              >
+                Completed
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- {% else %}
+      <button id="{{task.id}}" id="{{task.id}}" class="done-button bg-success">
+        Cancel
+      </button> -->
+        {% endif %}
+      </li>
+    </ul>
+  </div>
+</main>
+<script>
+  // const task = document.querySelector(".trash-can");
+  const buttonDone = document.querySelector(".done-button");
+  buttonDone.addEventListener("click", () => {
+    const idTask = buttonDone.getAttribute("id");
+    console.log(idTask);
+    window.location.replace("/tasks/completed/" + idTask);
+  });
+  // task.addEventListener("click", () => {
+  //   const idTask = task.getAttribute("id");
+  //   window.location.replace(`/tasks/delete/` + idTask);
+  // });
+</script>
+
+{% endblock %}

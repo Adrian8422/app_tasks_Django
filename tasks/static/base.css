@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Courier New", Courier, monospace;
+}
+.hover-effect:hover {
+  opacity: 0.5;
+}
+/* .fill-green {
+  background: linear-gradient(to right, green 0%, green 0%);
+  background-size: 0% 100%;
+  transition: background-size 0.5s ease;
+  padding: 10px 20px;
+  border: none;
+
+  font-weight: bold;
+  cursor: pointer;
+}
+.fill-green-active {
+  background: linear-gradient(to right, green 0%, green 0%);
+  background-size: 100%;
+  transition: background-size 0.5s ease;
+  padding: 10px 20px;
+  border: none;
+
+  font-weight: bold;
+  cursor: pointer;
+} */

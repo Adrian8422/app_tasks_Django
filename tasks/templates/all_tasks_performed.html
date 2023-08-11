@@ -1,0 +1,32 @@
+{% extends 'layout/base.html' %} {% block content %}
+<main class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h1 class="p-5 text-center display-3">Tasks completed</h1>
+      <ul class="list-group">
+        {% for task in tasks %}
+        <li class="list-group-item card" style="cursor: pointer">
+          <div
+            class="triangle position-absolute top-0 end-0"
+            style="
+              width: 0;
+              height: 0;
+              border-style: solid;
+              border-width: 0 30px 30px 0;
+              border-color: transparent #08892e transparent transparent;
+            "
+          ></div>
+          <header class="d-flex justify-content-between">
+            <h2 class="fw-bold text-success hover-effect">{{task.title}}</h2>
+            <p>Done: {{task.datecompleted|date:'M j Y:i'}}</p>
+          </header>
+          <p>{{task.description}}</p>
+        </li>
+
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</main>
+
+{% endblock %}
